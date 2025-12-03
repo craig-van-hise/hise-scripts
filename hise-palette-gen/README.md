@@ -53,10 +53,10 @@ include("utils/colour/HSLuv.js");
 include("HSLuvPaletteGen.js");
 
 // 3. Define your Base Color (e.g., Blue)
-const var myBaseColor = 0xFF2196F3; 
+const myBaseColor = 0xFF2196F3; 
 
 // 4. Generate the Palette Object
-const var palette = generateButtonPalette(myBaseColor);
+const palette = generateButtonPalette(myBaseColor);
 
 /*
  Returns:
@@ -68,7 +68,7 @@ const var palette = generateButtonPalette(myBaseColor);
 */
 
 // 5. Create a ScriptPanel (Buttons do not support paint routines)
-const var MyPanel = Content.addPanel("MyPanel", 0, 0);
+const MyPanel = Content.addPanel("MyPanel", 0, 0);
 MyPanel.set("allowCallbacks", "Clicks & Hover");
 MyPanel.set("width", 150);
 MyPanel.set("height", 50);

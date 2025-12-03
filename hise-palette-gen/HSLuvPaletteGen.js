@@ -180,16 +180,16 @@ namespace InfiniteKnob
 // ==========================================================================
 
 // --- CONFIGURATION CONSTANTS ---
-const var INIT_HUE = 0.0;   // 0 - 360
-const var INIT_SAT = 75.0;  // 0 - 100
-const var INIT_LIG = 50.0;  // 0 - 100
+const INIT_HUE = 0.0;   // 0 - 360
+const INIT_SAT = 75.0;  // 0 - 100
+const INIT_LIG = 50.0;  // 0 - 100
 
 // Initialize Global State
 var currentHSLuv = [INIT_HUE, INIT_SAT, INIT_LIG];
 var baseColour = HSLuv.toColour(currentHSLuv);
 
 // --- Background Stage ---
-const var BackgroundPanel = Content.addPanel("BackgroundPanel", 0, 0);
+const BackgroundPanel = Content.addPanel("BackgroundPanel", 0, 0);
 BackgroundPanel.set("width", 200);
 BackgroundPanel.set("height", 120);
 BackgroundPanel.set("saveInPreset", false);
@@ -198,7 +198,7 @@ BackgroundPanel.setPaintRoutine(function(g) {
 });
 
 // --- Test Button ---
-const var TestColourPanel = Content.addPanel("TestColourPanel", 30, 35); 
+const TestColourPanel = Content.addPanel("TestColourPanel", 30, 35); 
 TestColourPanel.set("width", 140);
 TestColourPanel.set("height", 50);
 TestColourPanel.set("allowCallbacks", "All Callbacks");
@@ -211,7 +211,7 @@ TestColourPanel.data.stateFlags = {
 
 // --- Controls ---
 
-const var DisableSwitch = Content.addButton("DisableSwitch", 210, 10);
+const DisableSwitch = Content.addButton("DisableSwitch", 210, 10);
 DisableSwitch.set("text", "Disable");
 inline function onDisableControl(component, value)
 {
@@ -221,7 +221,7 @@ inline function onDisableControl(component, value)
 };
 DisableSwitch.setControlCallback(onDisableControl);
 
-const var FocusDemoBtn = Content.addButton("FocusDemoBtn", 210, 40);
+const FocusDemoBtn = Content.addButton("FocusDemoBtn", 210, 40);
 FocusDemoBtn.set("text", "Simulate Focus");
 inline function onFocusDemoControl(component, value)
 {
@@ -238,15 +238,15 @@ inline function updateAll() {
 
 // --- Knobs ---
 
-const var HueKnob = InfiniteKnob.create("HueKnob", 0, 130, "Hue", true, INIT_HUE / 360.0);
+const HueKnob = InfiniteKnob.create("HueKnob", 0, 130, "Hue", true, INIT_HUE / 360.0);
 inline function onHueControl(component, value) { currentHSLuv[0] = value * 360.0; updateAll(); };
 HueKnob.setControlCallback(onHueControl);
 
-const var SatKnob = InfiniteKnob.create("SatKnob", 70, 130, "Sat", false, INIT_SAT / 100.0);
+const SatKnob = InfiniteKnob.create("SatKnob", 70, 130, "Sat", false, INIT_SAT / 100.0);
 inline function onSatControl(component, value) { currentHSLuv[1] = value * 100.0; updateAll(); };
 SatKnob.setControlCallback(onSatControl);
 
-const var LightKnob = InfiniteKnob.create("LightKnob", 140, 130, "Light", false, INIT_LIG / 100.0);
+const LightKnob = InfiniteKnob.create("LightKnob", 140, 130, "Light", false, INIT_LIG / 100.0);
 inline function onLightControl(component, value) { currentHSLuv[2] = value * 100.0; updateAll(); };
 LightKnob.setControlCallback(onLightControl);
 
